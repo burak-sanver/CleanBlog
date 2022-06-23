@@ -20,10 +20,15 @@ app.use(express.json());
 
 // ROUTES
 app.get('/', async (req, res) => {
-  const post = await Post.find({})
+  const posts = await Post.find({})
   res.render('index', {
-    post
+    posts
   });
+});
+
+app.get('/posts/:id', async (req, res) => {
+  const post = await Post.findById(req.params.id)
+  res.render('post', { post })
 });
 
 app.get('/about', (req, res) => {
