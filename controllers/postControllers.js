@@ -49,3 +49,5 @@ exports.deletePost = async (req, res) => {
   await Post.findByIdAndRemove(req.params.id);
   res.redirect('/');
 };
+
+
